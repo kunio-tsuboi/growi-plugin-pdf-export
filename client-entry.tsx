@@ -32,7 +32,7 @@ function addStyle() {
 
     style.textContent = `
         #unou-pdf-export {
-            color: var(--bs-secondary-color);
+            color: rgba(64, 60, 57, 0.5);
             
             transition:
                 color 0.15s ease-in-out,
@@ -61,7 +61,6 @@ function createPdfButton() {
 
     button.id = 'unou-pdf-export';
     button.className = 'shadow-none btn btn-seen-user border-0 d-flex align-items-center';
-    //button.innerText = 'PDF出力';
     button.innerHTML = BUTTON_HTML;
 
     Object.assign(button.style, {
@@ -79,7 +78,6 @@ function createPdfButton() {
         try {
 
             button.disabled = true;
-            //button.innerText = '生成中...';
             button.innerHTML = BUTTON_WORKING_HTML;
 
             const pageUrl = window.location.href;
@@ -171,12 +169,10 @@ function createPdfButton() {
         finally {
 
             button.disabled = false;
-            //button.innerText = 'PDF出力';
             button.innerHTML = BUTTON_HTML;
         }
     };
 
-    //document.body.appendChild(button);
     const target = document.querySelector(
         '[class*="grw-page-controls"]'
     );
