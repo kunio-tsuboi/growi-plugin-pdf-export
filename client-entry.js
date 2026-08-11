@@ -1,5 +1,3 @@
-import config from './package.json';
-console.log('[unou-pdf-export]', growiFacade);
 const BUTTON_HTML = '<span class="material-symbols-outlined me-1">picture_as_pdf</span>PDF';
 const BUTTON_WORKING_HTML = `
 <span
@@ -133,10 +131,22 @@ const activate = () => {
 };
 const deactivate = () => {
 };
+// GROWIのScript Pluginとして登録
 window.pluginActivators =
     window.pluginActivators || {};
-window.pluginActivators[config.name] = {
+/*
+(window as any).pluginActivators[
+    config.name
+] = {
     activate,
     deactivate,
 };
+*/
+window.pluginActivators['growi-plugin-pdf-export'] = {
+    activate,
+    deactivate,
+};
+export {};
+// Markdownレンダラ拡張ではないため
+// activateを明示的に実行
 //activate();
