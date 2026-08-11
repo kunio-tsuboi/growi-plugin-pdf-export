@@ -31,7 +31,7 @@ function createPdfButton() {
     const button = document.createElement('button');
 
     button.id = 'unou-pdf-export';
-    button.className = 'border-0 rounded d-flex align-items-center justify-content-center btn btn-transparent';
+    button.className = 'border-0 rounded button-page-item-control d-flex align-items-center justify-content-center btn btn-transparent';
     //button.innerText = 'PDF出力';
     button.innerHTML = BUTTON_HTML;
 
