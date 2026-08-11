@@ -1,7 +1,12 @@
 {
     "name": "growi-plugin-pdf-export",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "PDF Export Plugin",
+    "type": "module",
+    "keywords": [
+        "growi",
+        "growi-plugin"
+    ],
     "scripts": {
         "build": "vite build"
     },
