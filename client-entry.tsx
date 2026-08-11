@@ -161,3 +161,5 @@ const deactivate = () => {
     activate,
     deactivate,
 };
+
+activate();

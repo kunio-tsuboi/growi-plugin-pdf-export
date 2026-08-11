@@ -95,3 +95,4 @@ window.pluginActivators[config.name] = {
     activate,
     deactivate,
 };
+activate();
