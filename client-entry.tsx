@@ -3,8 +3,14 @@ import config from './package.json';
 const BUTTON_HTML =
     '<span class="material-symbols-outlined me-1">picture_as_pdf</span>PDF出力';
 
-const BUTTON_WORKING_HTML =
-    '<span class="material-symbols-outlined me-1">hourglass_top</span>生成中...';
+const BUTTON_WORKING_HTML = `
+<span
+    class="spinner-border spinner-border-sm me-2"
+    role="status"
+    aria-hidden="true">
+</span>
+生成中...
+`;
 
 type PluginConfig = {
     apiUrl: string;
@@ -25,15 +31,11 @@ function createPdfButton() {
     const button = document.createElement('button');
 
     button.id = 'unou-pdf-export';
-    button.className = 'btn btn-transparent';
+    button.className = 'border-0 rounded d-flex align-items-center justify-content-center btn btn-transparent';
     //button.innerText = 'PDF出力';
     button.innerHTML = BUTTON_HTML;
 
     Object.assign(button.style, {
-        padding: '6px 12px',
-        borderRadius: '6px',
-        border: '1px solid #ccc',
-        background: 'transparent',
         cursor: 'pointer',
     });
 
