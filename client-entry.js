@@ -77,6 +77,9 @@ function createPdfButton() {
                 const body = await response.text();
                 throw new Error(`Unexpected response type: ${contentType}\n${body}`);
             }
+            const disposition = response.headers.get('Content-Disposition');
+            console.log('[unou-pdf-export] Content-Disposition =', disposition);
+            console.log('[unou-pdf-export] response headers =', [...response.headers.entries()]);
             const blob = await response.blob();
             const downloadUrl = URL.createObjectURL(blob);
             const link = document.createElement('a');
@@ -84,7 +87,6 @@ function createPdfButton() {
                 .replace(/^\/+/, '')
                 .replace(/\//g, '_'));
             link.href = downloadUrl;
-            const disposition = response.headers.get('Content-Disposition');
             let fileName = `${pageName}.pdf`;
             const match = disposition?.match(/filename\*=UTF-8''(.+)$/);
             if (match) {

@@ -112,6 +112,19 @@ function createPdfButton() {
                 );
             }
 
+            const disposition =
+                response.headers.get(
+                    'Content-Disposition'
+                );
+            console.log(
+                '[unou-pdf-export] Content-Disposition =',
+                disposition
+            );
+            console.log(
+                '[unou-pdf-export] response headers =',
+                [...response.headers.entries()]
+            );
+
             const blob = await response.blob();
 
             const downloadUrl =
@@ -129,10 +142,6 @@ function createPdfButton() {
 
             link.href = downloadUrl;
 
-            const disposition =
-                response.headers.get(
-                    'Content-Disposition'
-                );
             let fileName = `${pageName}.pdf`;
             const match =
                 disposition?.match(
