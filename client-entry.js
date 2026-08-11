@@ -1,4 +1,6 @@
 import config from './package.json';
+const BUTTON_HTML = '<span class="material-symbols-outlined me-1">picture_as_pdf</span>PDF出力';
+const BUTTON_WORKING_HTML = '<span class="material-symbols-outlined me-1">hourglass_top</span>生成中...';
 function getPluginConfig() {
     return window
         .GROWI_PLUGIN_PDF_EXPORT_CONFIG;
@@ -9,17 +11,14 @@ function createPdfButton() {
     }
     const button = document.createElement('button');
     button.id = 'unou-pdf-export';
-    button.innerText = 'PDF出力';
+    button.className = 'btn btn-transparent';
+    //button.innerText = 'PDF出力';
+    button.innerHTML = BUTTON_HTML;
     Object.assign(button.style, {
-        position: 'fixed',
-        right: '20px',
-        bottom: '20px',
-        zIndex: '9999',
-        padding: '10px 16px',
+        padding: '6px 12px',
         borderRadius: '6px',
-        border: 'none',
-        background: '#337ab7',
-        color: '#fff',
+        border: '1px solid #ccc',
+        background: 'transparent',
         cursor: 'pointer',
     });
     button.onclick = async () => {
@@ -30,7 +29,8 @@ function createPdfButton() {
         }
         try {
             button.disabled = true;
-            button.innerText = '生成中...';
+            //button.innerText = '生成中...';
+            button.innerHTML = BUTTON_WORKING_HTML;
             const pageUrl = window.location.href;
             const response = await fetch(pluginConfig.apiUrl, {
                 method: 'POST',
@@ -69,10 +69,21 @@ function createPdfButton() {
         }
         finally {
             button.disabled = false;
-            button.innerText = 'PDF出力';
+            //button.innerText = 'PDF出力';
+            button.innerHTML = BUTTON_HTML;
         }
     };
-    document.body.appendChild(button);
+    //document.body.appendChild(button);
+    const target = document.querySelector('[class*=grw-page-controls"]');
+    if (target) {
+        const menuButton = target.querySelector('.grw-page-item-control');
+        if (menuButton != null) {
+            menuButton.insertAdjacentElement('afterend', button);
+        }
+        else {
+            target.appendChild(button);
+        }
+    }
 }
 const activate = () => {
     const pluginConfig = getPluginConfig();
