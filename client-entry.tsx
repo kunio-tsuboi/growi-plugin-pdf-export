@@ -21,6 +21,35 @@ function getPluginConfig(): PluginConfig | undefined {
         .GROWI_PLUGIN_PDF_EXPORT_CONFIG;
 }
 
+function addStyle() {
+    if (document.getElementById('unou-pdf-export-style')) {
+        return;
+    }
+
+    const style = document.createElement('style');
+
+    style.id = 'unou-pdf-export-style';
+
+    style.textContent = `
+        #unou-pdf-export {
+            color: var(--bs-secondary-color);
+            
+            transition:
+                color 0.15s ease-in-out,
+                background-color 0.15s ease-in-out,
+                border-color 0.15s ease-in-out,
+                box-shadow 0.15s ease-in-out;
+        }
+        
+        #unou-pdf-export:hover {
+            color: rgb(220, 53, 69);
+            background-color: rgba(220, 53, 69, 0.2);
+        }
+    `;
+
+    document.head.appendChild(style);
+}
+
 function createPdfButton() {
     
 
@@ -149,6 +178,7 @@ function createPdfButton() {
 }
 
 const activate = () => {
+    addStyle();
     const pluginConfig = getPluginConfig();
 
     console.log(
