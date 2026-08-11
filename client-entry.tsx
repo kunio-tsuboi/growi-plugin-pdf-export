@@ -1,7 +1,13 @@
 import config from './package.json';
 
+declare const growiFacade: any;
+console.log(
+    '[unou-pdf-export]',
+    growiFacade
+);
+
 const BUTTON_HTML =
-    '<span class="material-symbols-outlined me-1">picture_as_pdf</span>PDF出力';
+    '<span class="material-symbols-outlined me-1">picture_as_pdf</span>PDF';
 
 const BUTTON_WORKING_HTML = `
 <span
@@ -237,4 +243,4 @@ const deactivate = () => {
     deactivate,
 };
 
-activate();
+//activate();

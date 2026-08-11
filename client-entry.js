@@ -1,5 +1,6 @@
 import config from './package.json';
-const BUTTON_HTML = '<span class="material-symbols-outlined me-1">picture_as_pdf</span>PDF出力';
+console.log('[unou-pdf-export]', growiFacade);
+const BUTTON_HTML = '<span class="material-symbols-outlined me-1">picture_as_pdf</span>PDF';
 const BUTTON_WORKING_HTML = `
 <span
     class="spinner-border spinner-border-sm me-2"
@@ -138,4 +139,4 @@ window.pluginActivators[config.name] = {
     activate,
     deactivate,
 };
-activate();
+//activate();
