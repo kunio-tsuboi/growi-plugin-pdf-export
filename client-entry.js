@@ -74,9 +74,9 @@ function createPdfButton() {
         }
     };
     //document.body.appendChild(button);
-    const target = document.querySelector('[class*=grw-page-controls"]');
+    const target = document.querySelector('[class*="grw-page-controls"]');
     if (target) {
-        const menuButton = target.querySelector('.grw-page-item-control');
+        const menuButton = document.querySelector('.grw-page-item-control');
         if (menuButton != null) {
             menuButton.insertAdjacentElement('afterend', button);
         }

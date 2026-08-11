@@ -125,12 +125,12 @@ function createPdfButton() {
 
     //document.body.appendChild(button);
     const target = document.querySelector(
-        '[class*=grw-page-controls"]'
+        '[class*="grw-page-controls"]'
     );
 
     if (target) {
         const menuButton =
-            target.querySelector(
+            document.querySelector(
                 '.grw-page-item-control'
             );
         
