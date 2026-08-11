@@ -1,0 +1,23 @@
+{
+    "name": "growi-plugin-pdf-export",
+    "version": "0.1.0",
+    "description": "PDF Export Plugin",
+    "scripts": {
+        "build": "vite build"
+    },
+    "growiPlugin": {
+        "schemaVersion": "4",
+        "types": [
+            "script"
+        ]
+    },
+    "dependencies": {
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1"
+    },
+    "devDependencies": {
+        "@growi/pluginkit": "^1.2.7",
+        "typescript": "^5.9.3",
+        "vite": "^5.4.21"
+    }
+}
