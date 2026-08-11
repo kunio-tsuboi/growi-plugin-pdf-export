@@ -131,22 +131,10 @@ const activate = () => {
 };
 const deactivate = () => {
 };
-// GROWIのScript Pluginとして登録
 window.pluginActivators =
     window.pluginActivators || {};
-/*
-(window as any).pluginActivators[
-    config.name
-] = {
-    activate,
-    deactivate,
-};
-*/
 window.pluginActivators['growi-plugin-pdf-export'] = {
     activate,
     deactivate,
 };
 export {};
-// Markdownレンダラ拡張ではないため
-// activateを明示的に実行
-//activate();
