@@ -2,13 +2,9 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   build: {
-    lib: {
-      entry: './client-entry.tsx',
-      formats: ['iife'],
-      name: 'GrowiPluginPdfExport',
-      fileName: () => 'plugin.js',
+    manifest: 'manifest.json',
+    rollupOptions: {
+      input: ['/client-entry.tsx'],
     },
-    outDir: 'dist',
-    emptyOutDir: true,
   },
 });

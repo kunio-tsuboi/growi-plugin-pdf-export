@@ -8,7 +8,7 @@
         "growi-plugin"
     ],
     "scripts": {
-        "build": "vite build"
+        "build": "tsc && vite build"
     },
     "growiPlugin": {
         "schemaVersion": "4",
