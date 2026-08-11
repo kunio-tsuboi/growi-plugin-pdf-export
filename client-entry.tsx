@@ -128,7 +128,20 @@ function createPdfButton() {
                 );
 
             link.href = downloadUrl;
-            link.download = `${pageName}.pdf`;
+
+            const disposition =
+                response.headers.get(
+                    'Content-Disposition'
+                );
+            let fileName = `${pageName}.pdf`;
+            const match =
+                disposition?.match(
+                    /filename\*=UTF-8''(.+)$/
+            );
+            if (match) {
+                fileName = decodeURIComponent(match[1]);
+            }
+            link.download = fileName;
 
             document.body.appendChild(link);
 
