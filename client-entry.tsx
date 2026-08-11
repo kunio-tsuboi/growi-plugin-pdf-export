@@ -1,4 +1,3 @@
-alert('PDF plugin loaded');
 import config from './package.json';
 
 type PluginConfig = {
